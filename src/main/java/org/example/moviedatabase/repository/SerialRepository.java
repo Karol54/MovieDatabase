@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface SerialRepository extends JpaRepository<Serial, Integer> {
+public interface SerialRepository extends JpaRepository<Serial, Long> {
     List<Serial> findSerialByTitleContainingIgnoreCase(String title);
 
 }

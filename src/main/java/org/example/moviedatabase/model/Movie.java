@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.example.moviedatabase.contract.MovieRequest;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Getter
@@ -46,7 +47,13 @@ public class Movie {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "distribution_id", nullable=false)
+    @JoinColumn(name = "distribution_id", nullable = false)
     private Distribution distribution;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "rating_id", nullable = false)
+    private Rating rating;
+
 
 }

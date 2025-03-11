@@ -6,8 +6,10 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.moviedatabase.contract.SerialRequest;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Getter
@@ -15,6 +17,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Serials")
 public class Serial {
+
+    public Serial(SerialRequest request) {
+
+    }
 
     public Serial() {}
 
@@ -25,18 +31,20 @@ public class Serial {
     private String title;
     private String description;
     private String releaseDate;
+    private int episode;
     private int time;
     private String genre;
-    private int score;
     private LocalDateTime created;
     private LocalDateTime updated;
-    private String review;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "distribution_id", nullable=false)
     private Distribution distribution;
 
-
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "rating_id", nullable = false)
+    private Rating rating;
 
 }

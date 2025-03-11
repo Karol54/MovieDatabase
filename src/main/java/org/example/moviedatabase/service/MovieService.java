@@ -12,7 +12,6 @@ public interface MovieService {
     void delete(Long id);
     List<Movie> list();
     List<Movie> search(String query);
-    //List<Movie> searchGenre(String query);
 
 
 }
